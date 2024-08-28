@@ -1,26 +1,32 @@
 import React from "react";
 import "./NavBar.css";
 import Home from "../../pages/home/Home";
-import { NavLink } from "react-router-dom";
+import BasicModal from "./modalNav/Modal";
+// import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const labels = [
-    { titulo: "home", page: "/" },
+    { titulo: "Home", page: "/" },
     { titulo: "Trabalhos", page: "/Trabalhos" },
     { titulo: "Sobre", page: "/Sobre" },
   ];
 
   return (
-    <div className="flex-titulo">
-      {labels.map((item) => (
-        <div key={item} className="flex-titulo">
-          <div>
-            <NavLink to={item.page} className="titulo">
-              {item.titulo}
-            </NavLink>
+    <div className="flex-navBar">
+      <div className="flex-titulo">
+        {labels.map((item) => (
+          <div key={item} className="flex-titulo">
+            <div class="container red topBotomBordersOut">
+              <a href={item.page} className="titulo">
+                {item.titulo}
+              </a>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div className="flex-modal">
+        <BasicModal />
+      </div>
     </div>
   );
 };
